@@ -1,0 +1,349 @@
+<!doctype html>
+<html lang="th">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>แนะนำตัวละคร — Character Profile</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg1: #0f172a;
+            /* navy */
+            --bg2: #071032;
+            /* deep */
+            --card: rgba(255, 255, 255, 0.06);
+            --glass: rgba(255, 255, 255, 0.06);
+            --accent: linear-gradient(90deg, #7c3aed, #06b6d4);
+            --muted: rgba(255, 255, 255, 0.7);
+        }
+
+        * {
+            box-sizing: border-box
+        }
+
+        html,
+        body {
+            height: 100%
+        }
+
+        body {
+            margin: 0;
+            font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, 'Noto Sans', sans-serif;
+            color: #e6eef8;
+            background: radial-gradient(1200px 600px at 10% 10%, rgba(124, 58, 237, 0.14), transparent 8%),
+                radial-gradient(900px 400px at 90% 90%, rgba(6, 182, 212, 0.07), transparent 10%),
+                linear-gradient(180deg, var(--bg1), var(--bg2));
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            padding: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .container {
+            width: min(980px, 96%);
+            display: grid;
+            grid-template-columns: 360px 1fr;
+            gap: 28px;
+            align-items: start;
+        }
+
+        /* Profile card */
+        .card {
+            background: linear-gradient(180deg, rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0.02));
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            border-radius: 18px;
+            padding: 22px;
+            backdrop-filter: blur(8px);
+            box-shadow: 0 8px 30px rgba(2, 6, 23, 0.6);
+        }
+
+        .portrait {
+            width: 100%;
+            border-radius: 14px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .portrait img {
+            display: block;
+            width: 100%;
+            height: auto;
+        }
+
+        .avatar-wrap {
+            display: flex;
+            gap: 12px;
+            align-items: center;
+            margin-top: 12px
+        }
+
+        .avatar {
+            width: 84px;
+            height: 84px;
+            border-radius: 14px;
+            overflow: hidden;
+            flex-shrink: 0;
+            border: 2px solid rgba(255, 255, 255, 0.06);
+        }
+
+        .avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover
+        }
+
+        .name {
+            font-size: 20px;
+            font-weight: 700;
+            letter-spacing: 0.2px
+        }
+
+        .role {
+            font-size: 13px;
+            opacity: 0.85;
+            margin-top: 4px
+        }
+
+        .tagline {
+            margin-top: 10px;
+            font-size: 13px;
+            color: var(--muted)
+        }
+
+        .meta {
+            display: flex;
+            gap: 10px;
+            margin-top: 12px
+        }
+
+        .meta .pill {
+            background: rgba(255, 255, 255, 0.03);
+            padding: 8px 10px;
+            border-radius: 999px;
+            font-size: 13px
+        }
+
+        /* Main info */
+        .info {
+            padding: 30px;
+            border-radius: 18px;
+            background: linear-gradient(180deg, rgba(255, 255, 255, 0.02), transparent);
+            border: 1px solid rgba(255, 255, 255, 0.03);
+        }
+
+        .headline {
+            display: flex;
+            align-items: center;
+            justify-content: space-between
+        }
+
+        .headline h1 {
+            font-size: 28px;
+            margin: 0
+        }
+
+        .headline .actions {
+            display: flex;
+            gap: 10px
+        }
+
+        .description {
+            margin-top: 16px;
+            color: rgba(230, 238, 248, 0.9);
+            line-height: 1.6
+        }
+
+        .stats {
+            display: flex;
+            gap: 12px;
+            margin-top: 18px
+        }
+
+        .stat {
+            flex: 1;
+            background: rgba(255, 255, 255, 0.025);
+            padding: 14px;
+            border-radius: 12px;
+            text-align: center
+        }
+
+        .stat .num {
+            font-weight: 700;
+            font-size: 18px
+        }
+
+        .stat .label {
+            font-size: 12px;
+            opacity: 0.8;
+            margin-top: 6px
+        }
+
+        .abilities {
+            margin-top: 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 12px
+        }
+
+        .ability {
+            padding: 12px;
+            border-radius: 10px;
+            background: linear-gradient(180deg, rgba(255, 255, 255, 0.02), rgba(255, 255, 255, 0.01));
+            border: 1px solid rgba(255, 255, 255, 0.02)
+        }
+
+        .ability h4 {
+            margin: 0 0 6px 0;
+            font-size: 14px
+        }
+
+        .ability p {
+            margin: 0;
+            font-size: 13px;
+            color: var(--muted)
+        }
+
+        .cta {
+            display: flex;
+            gap: 12px;
+            margin-top: 22px
+        }
+
+        .btn {
+            padding: 10px 14px;
+            border-radius: 12px;
+            font-weight: 600;
+            border: 0;
+            cursor: pointer
+        }
+
+        .btn.glow {
+            background: var(--accent);
+            color: #04202a;
+            box-shadow: 0 8px 30px rgba(7, 21, 68, 0.5);
+        }
+
+        .btn.ghost {
+            background: transparent;
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            color: var(--muted)
+        }
+
+        /* small screen */
+        @media (max-width:880px) {
+            .container {
+                grid-template-columns: 1fr;
+            }
+
+            .headline h1 {
+                font-size: 22px
+            }
+        }
+
+        /* subtle hover */
+        .card:hover {
+            transform: translateY(-4px);
+            transition: transform .25s ease
+        }
+
+        .ability:hover {
+            transform: translateY(-4px);
+            transition: transform .2s ease
+        }
+    </style>
+</head>
+
+<body>
+    <main class="container">
+        <!-- Left column: portrait + quick info -->
+        <aside class="card">
+            <div class="portrait">
+                <!-- เปลี่ยน src เป็นภาพตัวละครของคุณ -->
+                <img src="3.jpg" alt="">
+
+            </div>
+
+            <div class="avatar-wrap">
+                <div class="avatar">
+                    <img src="4.jpg" alt="">
+                </div>
+                <div>
+                    <div class="name">เบบี้กีกี้</div>
+                    <div class="role">นักพนัน</div>
+                    <div class="tagline">กิน นอน เล่นไพ่</div>
+                </div>
+            </div>
+
+            <div class="meta" aria-hidden>
+                <div class="pill">อุุปกรณ์: โทรศัพท์ และ ไอแพด</div>
+            </div>
+        </aside>
+
+        <!-- Right column: detailed info -->
+        <section class="info card">
+            <div class="headline">
+                <h1>เบบี้กีกี้ นักพนันตัวจริง</h1>
+                <div class="actions">
+                    <button class="btn glow"
+                        onclick="document.getElementById('bio').scrollIntoView({behavior:'smooth'})">อ่านประวัติ</button>
+                    <button class="btn ghost"
+                        onclick="alert('แชร์: คัดลอก URL หรือใช้เมนูของเบราว์เซอร์')">แชร์</button>
+                </div>
+            </div>
+
+            <p class="description">เบบี้กีกี้ คือ นักพนัน ที่เล่นพนันในโทรศัพท์ 2 เครื่อง ชอบเล่นไพ่แคงไทย
+                หวังไหลไพ่คู่ต่อสู้ทุกตา แต่กลับโดนไหลซะเอง คำพูดติดปากเวลาแพ้ คือ หน้าหี ดอกทอง <br>
+                <a href="https://apps.apple.com/mm/app/%E0%B9%84%E0%B8%9E-%E0%B9%81%E0%B8%84%E0%B8%87-%E0%B8%A3%E0%B8%A7%E0%B8%A1%E0%B8%94-%E0%B8%A1%E0%B8%A1-%E0%B8%9B-%E0%B8%AD%E0%B8%81%E0%B9%80%E0%B8%94-%E0%B8%87-%E0%B9%84%E0%B8%AE%E0%B9%82%E0%B8%A5/id1258489361"
+                    target="_blank" style="color: azure;">อยากเล่นเกมส์
+                    เพื่อท้าเบบี้กีกี้ คลิกเลย!!</a>
+            </p>
+
+            <div class="stats" role="list">
+                <div class="stat" role="listitem">
+                    <div class="num">40</div>
+                    <div class="label">ชนะ</div>
+                </div>
+                <div class="stat" role="listitem">
+                    <div class="num">108</div>
+                    <div class="label">แพ้</div>
+                </div>
+                <div class="stat" role="listitem">
+                    <div class="num">2</div>
+                    <div class="label">เสมอ</div>
+                </div>
+            </div>
+
+            <div class="abilities">
+                <div class="ability">
+                    <h4>เวลาชนะ</h4>
+                    <p>ยักคิ้ว แลบลิ้น</p>
+                </div>
+                <div class="ability">
+                    <h4>เวลาแพ้</h4>
+                    <p>สบดด่า หน้าหี ดอกทอง เบื่อ</p>
+                </div>
+                <div class="ability">
+                    <h4>เวลาแคงแพ้</h4>
+                    <p>ออกจากห้อง เพราะเขิน</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        function toggleMore() {
+            const bio = document.getElementById('bio');
+            if (bio.style.display === 'none') {
+                bio.style.display = 'block';
+                bio.scrollIntoView({ behavior: 'smooth' });
+            } else {
+                bio.style.display = 'none';
+            }
+        }
+    </script>
+</body>
+
+</html>
