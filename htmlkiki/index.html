@@ -1,0 +1,267 @@
+<!doctype html>
+<html lang="th">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>เบบี้กีกี้ — นักพนันตัวจริง</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --bg1: #0f172a;
+            --bg2: #071032;
+            --accent: linear-gradient(90deg, #7c3aed, #06b6d4);
+            --muted: rgba(255, 255, 255, 0.7);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: "Inter", system-ui, -apple-system, sans-serif;
+            color: #e6eef8;
+            background: radial-gradient(1200px 600px at 10% 10%, rgba(124, 58, 237, 0.14), transparent 8%),
+                radial-gradient(900px 400px at 90% 90%, rgba(6, 182, 212, 0.07), transparent 10%),
+                linear-gradient(180deg, var(--bg1), var(--bg2));
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 960px;
+            display: grid;
+            grid-template-columns: 340px 1fr;
+            gap: 24px;
+        }
+
+        @media (max-width: 860px) {
+            .container {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 16px;
+            padding: 20px;
+            backdrop-filter: blur(8px);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .portrait img {
+            width: 100%;
+            border-radius: 12px;
+        }
+
+        .avatar-wrap {
+            display: flex;
+            gap: 12px;
+            align-items: center;
+            margin-top: 12px;
+        }
+
+        .avatar {
+            width: 70px;
+            height: 70px;
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        .avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .name {
+            font-size: 20px;
+            font-weight: 700;
+        }
+
+        .role {
+            font-size: 13px;
+            opacity: 0.8;
+        }
+
+        .info {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .headline {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .headline h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .btn {
+            padding: 8px 14px;
+            border-radius: 10px;
+            border: none;
+            cursor: pointer;
+            font-weight: 600;
+        }
+
+        .btn.glow {
+            background: var(--accent);
+            color: #04202a;
+        }
+
+        .btn.ghost {
+            background: transparent;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: var(--muted);
+        }
+
+        .description {
+            margin-top: 16px;
+            line-height: 1.6;
+            color: rgba(230, 238, 248, 0.9);
+            font-size: 15px;
+        }
+
+        .stats {
+            display: flex;
+            gap: 12px;
+            margin-top: 16px;
+            flex-wrap: wrap;
+        }
+
+        .stat {
+            flex: 1;
+            text-align: center;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            padding: 10px;
+            min-width: 90px;
+        }
+
+        .num {
+            font-weight: 700;
+            font-size: 18px;
+        }
+
+        .label {
+            font-size: 12px;
+            opacity: 0.8;
+        }
+
+        .abilities {
+            margin-top: 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+            gap: 10px;
+        }
+
+        .ability {
+            background: rgba(255, 255, 255, 0.03);
+            padding: 10px;
+            border-radius: 10px;
+        }
+
+        a {
+            color: #38bdf8;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+    <main class="container">
+        <aside class="card">
+            <div class="portrait">
+                <img src="3.jpg" alt="ภาพประกอบตัวละคร">
+            </div>
+            <div class="avatar-wrap">
+                <div class="avatar">
+                    <img src="4.jpg" alt="รูปย่อ">
+                </div>
+                <div>
+                    <div class="name">เบบี้กีกี้</div>
+                    <div class="role">นักพนัน</div>
+                    <div class="tagline">กิน นอน เล่นไพ่</div>
+                </div>
+            </div>
+            <div class="meta" style="margin-top:10px;">
+                <div class="pill">อุปกรณ์: โทรศัพท์ และไอแพด</div>
+            </div>
+        </aside>
+
+        <section class="info card">
+            <div class="headline">
+                <h1><b style="width: 900;"><u>ประวัติการเล่นเกมส์</u></b></h1>
+                <div class="actions">
+                    <button class="btn glow"
+                        onclick="window.scrollTo({top:document.body.scrollHeight, behavior:'smooth'})">อ่านประวัติ</button>
+                    <button class="btn ghost"
+                        onclick="alert('คัดลอกลิงก์จากแถบเบราว์เซอร์เพื่อแชร์ได้เลย!')">แชร์</button>
+                </div>
+            </div>
+            <h3><u><b style="400">เบบี้กีกี้ นักพนันตัวจริง</b></u></h3>
+
+            <p class="description">
+                <u><b>เบบี้กีกี้</b></u> คือ นักพนันตัวจริง ที่เล่นพนันในโทรศัพท์ 2 เครื่อง ชอบเล่นไพ่แคงไทย
+                หวังไหลไพ่คู่ต่อสู้ทุกตา แต่กลับโดนไหลซะเอง คำพูดติดปากเวลาแพ้ คือ หน้าหี ดอกทอง แต่ก็ยังไม่ยอมแพ้
+                ยังคงเล่นต่อไปจนกว่าจะโมโหจนเขวี้ยงโทรศัพท์ <br>
+                <a href="https://apps.apple.com/mm/app/%E0%B9%84%E0%B8%9E-%E0%B9%81%E0%B8%84%E0%B8%87-%E0%B8%A3%E0%B8%A7%E0%B8%A1%E0%B8%94-%E0%B8%A1%E0%B8%A1-%E0%B8%9B-%E0%B8%AD%E0%B8%81%E0%B9%80%E0%B8%94-%E0%B8%87-%E0%B9%84%E0%B8%AE%E0%B9%82%E0%B8%A5/id1258489361"
+                    target="_blank">
+                    <br>
+                    👉 อยากเล่นเกมส์
+                    เพื่อท้าเบบี้กีกี้ คลิกเลย!!
+                </a>
+            </p>
+
+            <div class="stats">
+                <div class="stat">
+                    <div class="num">40</div>
+                    <div class="label">ชนะ</div>
+                </div>
+                <div class="stat">
+                    <div class="num">108</div>
+                    <div class="label">แพ้</div>
+                </div>
+                <div class="stat">
+                    <div class="num">2</div>
+                    <div class="label">เสมอ</div>
+                </div>
+            </div>
+
+            <div class="abilities">
+                <div class="ability">
+                    <h4>เวลาชนะ</h4>
+                    <p>ยักคิ้ว แลบลิ้น</p>
+                </div>
+                <div class="ability">
+                    <h4>เวลาแพ้</h4>
+                    <p>สบดด่า หน้าหี ดอกทอง เบื่อ</p>
+                </div>
+                <div class="ability">
+                    <h4>เวลาแคงแพ้</h4>
+                    <p>ออกจากห้อง เพราะเขิน</p>
+                </div>
+            </div>
+        </section>
+    </main>
+</body>
+
+</html>
